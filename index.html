@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriApp - Nutrition & Planning Made Easy</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>🍎 NutriApp</h1>
+    <p>Your Personal Nutrition & Planning Assistant</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="hero-section">
+      <h2>Welcome to NutriApp</h2>
+      <p>Choose an option below to get started with your nutrition journey</p>
+    </section>
+
+    <section class="options-grid">
+      <!-- Recipes Option -->
+      <div class="option-card" data-modal="recipes">
+        <div class="option-icon">📖</div>
+        <h2>Recipes</h2>
+        <p>Explore delicious and healthy recipe ideas</p>
+        <button class="btn btn-primary">Explore Recipes</button>
+      </div>
+
+      <!-- Calories Calculator Option -->
+      <div class="option-card" data-modal="calculator">
+        <div class="option-icon">🧮</div>
+        <h2>Calories Calculator</h2>
+        <p>Calculate your daily calorie needs based on your goals</p>
+        <button class="btn btn-primary">Calculate Now</button>
+      </div>
+
+      <!-- Best Practices Option -->
+      <div class="option-card" data-modal="practices">
+        <div class="option-icon">⭐</div>
+        <h2>Best Practices</h2>
+        <p>Learn nutrition tips and healthy lifestyle habits</p>
+        <button class="btn btn-primary">Learn More</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <!-- Recipes Modal -->
+  <div id="recipes-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Recipes</h2>
+        <button class="modal-close" data-modal-close="recipes">✕</button>
+      </div>
+      <p>Recipe content coming soon...</p>
+    </div>
+  </div>
+
+  <!-- Calculator Modal -->
+  <div id="calculator-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Calorie Calculator</h2>
+        <button class="modal-close" data-modal-close="calculator">✕</button>
+      </div>
+      <p>Calculator content coming soon...</p>
+    </div>
+  </div>
+
+  <!-- Best Practices Modal -->
+  <div id="practices-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Best Practices</h2>
+        <button class="modal-close" data-modal-close="practices">✕</button>
+      </div>
+      <p>Best practices content coming soon...</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 NutriApp. All rights reserved. | Eat well, live better.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/modules/DataManager.js"></script>
+  <script src="js/modules/UIManager.js"></script>
+  <script src="js/modules/ModalManager.js"></script>
+  <script src="js/modules/Calculator.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
