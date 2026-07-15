@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Chicken Breast",
+    "nameRo": "Piept de pui",
     "category": "protein",
     "servings": [
       {
@@ -23,6 +24,7 @@
   {
     "id": 2,
     "name": "Egg",
+    "nameRo": "Ou",
     "category": "protein",
     "servings": [
       {
@@ -44,6 +46,7 @@
   {
     "id": 3,
     "name": "Brown Rice",
+    "nameRo": "Orez brun",
     "category": "carbs",
     "servings": [
       {
@@ -65,6 +68,7 @@
   {
     "id": 4,
     "name": "Broccoli",
+    "nameRo": "Broccoli",
     "category": "vegetables",
     "servings": [
       {
@@ -86,6 +90,7 @@
   {
     "id": 5,
     "name": "Banana",
+    "nameRo": "Banană",
     "category": "fruits",
     "servings": [
       {

@@ -346,8 +346,11 @@ function loadFoodDetailsModal() {
   foods.forEach(food => {
     const foodItem = document.createElement('div');
     foodItem.className = 'food-item-compact';
+    // Store both language names for bilingual search
     foodItem.dataset.foodName = food.name.toLowerCase();
+    foodItem.dataset.foodNameRo = (food.nameRo || '').toLowerCase();
 
+    // Header with food name and category
     const header = document.createElement('div');
     header.className = 'food-item-header';
 
@@ -361,28 +364,26 @@ function loadFoodDetailsModal() {
     header.appendChild(nameEl);
     header.appendChild(categoryEl);
 
-    const nutrition = document.createElement('div');
-    nutrition.className = 'food-item-nutrition';
+    // Nutrition per 100g (compact)
+    foodItem.appendChild(header);
 
-    if (food.servings && food.servings[0]) {
-      const serving = food.servings[0];
-      const badges = [
-        `${serving.calories} cal`,
-        `P: ${serving.proteins}g`,
-        `F: ${serving.fats}g`,
-        `C: ${serving.carbs}g`
-      ];
+    if (food.servings && food.servings.length > 0) {
+      // Find 100g serving or use first serving
+      const per100g = food.servings.find(s => s.unit.includes('100g')) || food.servings[0];
 
-      badges.forEach(badge => {
-        const badgeEl = document.createElement('span');
-        badgeEl.className = 'nutrition-badge';
-        badgeEl.textContent = badge;
-        nutrition.appendChild(badgeEl);
-      });
+      const nutrition = document.createElement('div');
+      nutrition.className = 'food-nutrition-compact';
+
+      const calVal = typeof per100g.calories === 'number' ? per100g.calories : 0;
+      const proVal = typeof per100g.proteins === 'number' ? per100g.proteins.toFixed(1) : 0;
+      const fatVal = typeof per100g.fats === 'number' ? per100g.fats.toFixed(1) : 0;
+      const carbVal = typeof per100g.carbs === 'number' ? per100g.carbs.toFixed(1) : 0;
+
+      const per100gLabel = i18n.t('per100g');
+      nutrition.innerHTML = `<span class="nutrition-label">${per100gLabel}:</span> ${calVal}${i18n.t('calories_short')} | ${i18n.t('proteins_short')}: ${proVal}g | ${i18n.t('fats_short')}: ${fatVal}g | ${i18n.t('carbs_short')}: ${carbVal}g`;
+      foodItem.appendChild(nutrition);
     }
 
-    foodItem.appendChild(header);
-    foodItem.appendChild(nutrition);
     foodsList.appendChild(foodItem);
   });
 
@@ -398,8 +399,11 @@ function loadFoodDetailsModal() {
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
     foodItems.forEach(item => {
-      const foodName = item.dataset.foodName;
-      item.style.display = foodName.includes(query) ? 'block' : 'none';
+      const foodNameEn = item.dataset.foodName;
+      const foodNameRo = item.dataset.foodNameRo;
+      // Search in both English and Romanian names
+      const matches = foodNameEn.includes(query) || foodNameRo.includes(query);
+      item.style.display = matches ? 'block' : 'none';
     });
   };
 

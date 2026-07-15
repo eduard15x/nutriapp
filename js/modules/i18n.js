@@ -71,7 +71,17 @@ class I18n {
         fat: 'Grăsime',
         carb: 'Carbohidrat',
         calorie: 'Calorie',
-        close: 'Închide'
+        close: 'Închide',
+        per100g: 'per 100g',
+        proteins_short: 'P',
+        fats_short: 'F',
+        carbs_short: 'C',
+        calories_short: 'cal',
+        chickenBreast: 'Piept de pui',
+        egg: 'Ou',
+        brownRice: 'Orez brun',
+        broccoli: 'Broccoli',
+        banana: 'Banană'
       },
       en: {
         appTitle: 'NutriApp',
@@ -136,7 +146,17 @@ class I18n {
         fat: 'Fat',
         carb: 'Carbs',
         calorie: 'Calories',
-        close: 'Close'
+        close: 'Close',
+        per100g: 'per 100g',
+        proteins_short: 'P',
+        fats_short: 'F',
+        carbs_short: 'C',
+        calories_short: 'cal',
+        chickenBreast: 'Chicken Breast',
+        egg: 'Egg',
+        brownRice: 'Brown Rice',
+        broccoli: 'Broccoli',
+        banana: 'Banana'
       }
     };
   }
