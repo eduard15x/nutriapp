@@ -80,6 +80,12 @@ function updatePageLanguage() {
   updateElement('fooddetails-desc', 'foodDetailsDesc');
   updateElement('fooddetails-btn', 'exploreFoods');
 
+  // Modal Titles
+  updateElement('recipes-modal-title', 'recipesModalTitle');
+  updateElement('calculator-modal-title', 'caloriesModalTitle');
+  updateElement('practices-modal-title', 'bestPracticesModalTitle');
+  updateElement('fooddetails-modal-title', 'foodDetailsModalTitle');
+
   // Footer
   updateElement('footer-text', 'copyright');
 }
