@@ -1,4 +1,10 @@
+/**
+ * ModalManager module for managing modal dialogs
+ */
 class ModalManager {
+  /**
+   * Initializes ModalManager with all modals on the page
+   */
   constructor() {
     this.modals = new Map();
     this.currentModal = null;
@@ -6,6 +12,9 @@ class ModalManager {
     this.attachEventListeners();
   }
 
+  /**
+   * Discovers and caches all modals on the page
+   */
   initializeModals() {
     const modalElements = document.querySelectorAll('[id$="-modal"]');
     modalElements.forEach(modal => {
@@ -14,6 +23,9 @@ class ModalManager {
     });
   }
 
+  /**
+   * Attaches event listeners for modal interactions
+   */
   attachEventListeners() {
     document.addEventListener('click', (e) => {
       const openButton = e.target.closest('[data-modal]');
@@ -40,6 +52,10 @@ class ModalManager {
     });
   }
 
+  /**
+   * Opens a modal by ID
+   * @param {string} modalId - ID of modal to open
+   */
   open(modalId) {
     const modal = this.modals.get(modalId);
     if (!modal) {
@@ -56,6 +72,10 @@ class ModalManager {
     document.dispatchEvent(event);
   }
 
+  /**
+   * Closes a specific modal
+   * @param {string} modalId - ID of modal to close
+   */
   close(modalId) {
     const modal = this.modals.get(modalId);
     if (!modal) return;
@@ -70,6 +90,9 @@ class ModalManager {
     document.dispatchEvent(event);
   }
 
+  /**
+   * Closes all open modals
+   */
   closeAll() {
     this.modals.forEach((modal) => {
       modal.classList.remove('active');
@@ -78,6 +101,11 @@ class ModalManager {
     document.body.style.overflow = '';
   }
 
+  /**
+   * Sets HTML content for a modal
+   * @param {string} modalId - ID of modal
+   * @param {string} content - HTML content to set
+   */
   setContent(modalId, content) {
     const modal = this.modals.get(modalId);
     if (!modal) return;
@@ -93,6 +121,11 @@ class ModalManager {
     }
   }
 
+  /**
+   * Gets a modal element by ID
+   * @param {string} modalId - ID of modal
+   * @returns {HTMLElement|undefined} Modal element or undefined if not found
+   */
   getModal(modalId) {
     return this.modals.get(modalId);
   }

@@ -1,4 +1,10 @@
+/**
+ * Internationalization (i18n) module for language support
+ */
 class I18n {
+  /**
+   * Initializes i18n with supported languages and translations
+   */
   constructor() {
     this.currentLanguage = localStorage.getItem('nutriapp-language') || 'ro';
     this.translations = {
@@ -135,10 +141,19 @@ class I18n {
     };
   }
 
+  /**
+   * Gets the current language
+   * @returns {string} Current language code (e.g., 'en', 'ro')
+   */
   getLanguage() {
     return this.currentLanguage;
   }
 
+  /**
+   * Sets the current language
+   * @param {string} lang - Language code to set
+   * @returns {boolean} True if language was set successfully, false otherwise
+   */
   setLanguage(lang) {
     if (this.translations[lang]) {
       this.currentLanguage = lang;
@@ -148,11 +163,20 @@ class I18n {
     return false;
   }
 
+  /**
+   * Gets a translated string for the given key
+   * @param {string} key - Translation key
+   * @returns {string} Translated string or key if translation not found
+   */
   t(key) {
     const translation = this.translations[this.currentLanguage][key];
     return translation || key;
   }
 
+  /**
+   * Gets all available languages
+   * @returns {Array<string>} Array of language codes
+   */
   getAllLanguages() {
     return Object.keys(this.translations);
   }
