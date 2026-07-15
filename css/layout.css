@@ -197,7 +197,7 @@ main {
   .option-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
-    border-color: #10b981;
+    border-color: var(--color-accent-green);
   }
 }
 
