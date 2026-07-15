@@ -2,21 +2,30 @@ document.addEventListener('DOMContentLoaded', async () => {
   await initializeApp();
 });
 
+/**
+ * Initializes the application
+ */
 async function initializeApp() {
-  console.log('NutriApp - Initializing...');
-
   try {
+    if (!dataManager) {
+      throw new Error('DataManager module not found');
+    }
+    if (!i18n) {
+      throw new Error('i18n module not found');
+    }
+
     await dataManager.loadFoods();
-    console.log('NutriApp - Foods loaded:', dataManager.getFoods().length);
 
     initializeLanguage();
     attachEventListeners();
-    console.log('NutriApp - Ready!');
   } catch (error) {
     console.error('NutriApp - Initialization error:', error);
   }
 }
 
+/**
+ * Initializes language settings and language switcher
+ */
 function initializeLanguage() {
   updatePageLanguage();
 
@@ -32,44 +41,58 @@ function initializeLanguage() {
   }
 }
 
+/**
+ * Updates all page text content based on current language
+ */
 function updatePageLanguage() {
   // Header & Navigation
-  document.getElementById('app-title').textContent = i18n.t('appTitle');
-  document.getElementById('app-subtitle').textContent = i18n.t('appSubtitle');
+  const updateElement = (id, key) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = i18n.t(key);
+  };
+
+  updateElement('app-title', 'appTitle');
+  updateElement('app-subtitle', 'appSubtitle');
 
   // Hero Section
-  document.getElementById('welcome-text').textContent = i18n.t('welcome');
-  document.getElementById('choose-text').textContent = i18n.t('chooseOption');
+  updateElement('welcome-text', 'welcome');
+  updateElement('choose-text', 'chooseOption');
 
   // Option Cards
-  document.getElementById('recipes-title').textContent = i18n.t('recipes');
-  document.getElementById('recipes-desc').textContent = i18n.t('recipesDesc');
-  document.getElementById('recipes-btn').textContent = i18n.t('exploreRecipes');
+  updateElement('recipes-title', 'recipes');
+  updateElement('recipes-desc', 'recipesDesc');
+  updateElement('recipes-btn', 'exploreRecipes');
 
-  document.getElementById('calculator-title').textContent = i18n.t('caloriesCalculator');
-  document.getElementById('calculator-desc').textContent = i18n.t('caloriesCalcDesc');
-  document.getElementById('calculator-btn').textContent = i18n.t('calculateNow');
+  updateElement('calculator-title', 'caloriesCalculator');
+  updateElement('calculator-desc', 'caloriesCalcDesc');
+  updateElement('calculator-btn', 'calculateNow');
 
-  document.getElementById('practices-title').textContent = i18n.t('bestPractices');
-  document.getElementById('practices-desc').textContent = i18n.t('bestPracticesDesc');
-  document.getElementById('practices-btn').textContent = i18n.t('learnMore');
+  updateElement('practices-title', 'bestPractices');
+  updateElement('practices-desc', 'bestPracticesDesc');
+  updateElement('practices-btn', 'learnMore');
 
-  document.getElementById('fooddetails-title').textContent = i18n.t('foodDetails');
-  document.getElementById('fooddetails-desc').textContent = i18n.t('foodDetailsDesc');
-  document.getElementById('fooddetails-btn').textContent = i18n.t('exploreFoods');
+  updateElement('fooddetails-title', 'foodDetails');
+  updateElement('fooddetails-desc', 'foodDetailsDesc');
+  updateElement('fooddetails-btn', 'exploreFoods');
 
   // Footer
-  document.getElementById('footer-text').textContent = i18n.t('copyright');
+  updateElement('footer-text', 'copyright');
 }
 
+/**
+ * Attaches global event listeners
+ */
 function attachEventListeners() {
   document.addEventListener('modalOpened', handleModalOpened);
   document.addEventListener('modalClosed', handleModalClosed);
 }
 
+/**
+ * Handles modal opened events
+ * @param {Event} event - Custom modal event
+ */
 function handleModalOpened(event) {
   const { modalId } = event.detail;
-  console.log('Modal opened:', modalId);
 
   switch (modalId) {
     case 'recipes':
@@ -87,21 +110,35 @@ function handleModalOpened(event) {
   }
 }
 
+/**
+ * Handles modal closed events
+ * @param {Event} event - Custom modal event
+ */
 function handleModalClosed(event) {
-  const { modalId } = event.detail;
-  console.log('Modal closed:', modalId);
+  // Cleanup handled per-modal
 }
 
+/**
+ * Loads and renders recipes modal content
+ */
 function loadRecipesModal() {
   const contentArea = document.getElementById('recipes-content');
-  contentArea.innerHTML = `
-    <div class="alert alert-info">
-      ${i18n.t('mockRecipesWarning')}
-    </div>
-  `;
+  const alertDiv = document.createElement('div');
+  alertDiv.className = 'alert alert-info';
+  alertDiv.textContent = i18n.t('mockRecipesWarning');
+  contentArea.innerHTML = '';
+  contentArea.appendChild(alertDiv);
 }
 
+/**
+ * Loads and renders calculator modal content
+ */
 function loadCalculatorModal() {
+  if (!calculator) {
+    console.error('Calculator module not found');
+    return;
+  }
+
   const contentArea = document.getElementById('calculator-content');
   const userData = calculator.getUserData();
 
@@ -159,9 +196,17 @@ function loadCalculatorModal() {
     <div id="calculator-results"></div>
   `;
 
-  document.getElementById('calculator-form').addEventListener('submit', handleCalculatorSubmit);
+  const formElement = document.getElementById('calculator-form');
+  if (formElement) {
+    formElement.removeEventListener('submit', handleCalculatorSubmit);
+    formElement.addEventListener('submit', handleCalculatorSubmit);
+  }
 }
 
+/**
+ * Handles calculator form submission
+ * @param {Event} e - Form submission event
+ */
 function handleCalculatorSubmit(e) {
   e.preventDefault();
 
@@ -172,6 +217,20 @@ function handleCalculatorSubmit(e) {
   const gender = formData.get('gender');
   const activityLevel = parseFloat(formData.get('activity'));
   const goal = formData.get('goal');
+
+  // Validate inputs
+  if (isNaN(weight) || weight < 30 || weight > 200) {
+    console.error('Invalid weight value');
+    return;
+  }
+  if (isNaN(height) || height < 140 || height > 220) {
+    console.error('Invalid height value');
+    return;
+  }
+  if (isNaN(age) || age < 16 || age > 100) {
+    console.error('Invalid age value');
+    return;
+  }
 
   // Save to localStorage
   calculator.saveData({ weight, height, age, gender, activityLevel, goal });
@@ -184,8 +243,8 @@ function handleCalculatorSubmit(e) {
       <h3>${i18n.t('yourDailyPlan')}</h3>
 
       <div class="results-info">
-        <p><strong>${i18n.t('goal')}:</strong> ${calculator.getGoalDescription(goal)}</p>
-        <p><strong>${i18n.t('activityLevel')}:</strong> ${calculator.getActivityLevelText(activityLevel)}</p>
+        <p><strong>${i18n.t('goal')}:</strong> ${escapeHtml(calculator.getGoalDescription(goal))}</p>
+        <p><strong>${i18n.t('activityLevel')}:</strong> ${escapeHtml(calculator.getActivityLevelText(activityLevel))}</p>
       </div>
 
       <div class="results-grid">
@@ -218,85 +277,149 @@ function handleCalculatorSubmit(e) {
   `;
 }
 
+/**
+ * Loads and renders best practices modal content
+ */
 function loadBestPracticesModal() {
   const contentArea = document.getElementById('practices-content');
-  contentArea.innerHTML = `
-    <div class="practices-list">
-      <div class="content-card" style="background: #f5f3ff; border-left-color: #8b5cf6;">
-        <h3>${i18n.t('hydration')}</h3>
-        <p>${i18n.t('hydrationDesc')}</p>
-      </div>
+  const practices = [
+    { titleKey: 'hydration', descKey: 'hydrationDesc' },
+    { titleKey: 'sleep', descKey: 'sleepDesc' },
+    { titleKey: 'exercise', descKey: 'exerciseDesc' },
+    { titleKey: 'wholefoods', descKey: 'wholefoodsDesc' },
+    { titleKey: 'trackProgress', descKey: 'trackProgressDesc' }
+  ];
 
-      <div class="content-card" style="background: #f5f3ff; border-left-color: #8b5cf6;">
-        <h3>${i18n.t('sleep')}</h3>
-        <p>${i18n.t('sleepDesc')}</p>
-      </div>
+  const practicesList = document.createElement('div');
+  practicesList.className = 'practices-list';
 
-      <div class="content-card" style="background: #f5f3ff; border-left-color: #8b5cf6;">
-        <h3>${i18n.t('exercise')}</h3>
-        <p>${i18n.t('exerciseDesc')}</p>
-      </div>
+  practices.forEach(practice => {
+    const card = document.createElement('div');
+    card.className = 'content-card';
 
-      <div class="content-card" style="background: #f5f3ff; border-left-color: #8b5cf6;">
-        <h3>${i18n.t('wholefoods')}</h3>
-        <p>${i18n.t('wholefoodsDesc')}</p>
-      </div>
+    const title = document.createElement('h3');
+    title.textContent = i18n.t(practice.titleKey);
 
-      <div class="content-card" style="background: #f5f3ff; border-left-color: #8b5cf6;">
-        <h3>${i18n.t('trackProgress')}</h3>
-        <p>${i18n.t('trackProgressDesc')}</p>
-      </div>
-    </div>
-  `;
+    const desc = document.createElement('p');
+    desc.textContent = i18n.t(practice.descKey);
+
+    card.appendChild(title);
+    card.appendChild(desc);
+    practicesList.appendChild(card);
+  });
+
+  contentArea.innerHTML = '';
+  contentArea.appendChild(practicesList);
 }
 
+/**
+ * Loads and renders food details modal content
+ */
 function loadFoodDetailsModal() {
+  if (!dataManager) {
+    console.error('DataManager module not found');
+    return;
+  }
+
   const contentArea = document.getElementById('fooddetails-content');
   const foods = dataManager.getFoods();
 
-  let html = `
-    <div class="food-details-container">
-      <div class="food-search-box">
-        <input type="text" id="food-search" class="food-search-input" placeholder="${i18n.t('foodName')}...">
-      </div>
-      <div class="foods-list" id="foods-list">
-  `;
+  const container = document.createElement('div');
+  container.className = 'food-details-container';
+
+  const searchBox = document.createElement('div');
+  searchBox.className = 'food-search-box';
+
+  const searchInput = document.createElement('input');
+  searchInput.type = 'text';
+  searchInput.id = 'food-search';
+  searchInput.className = 'food-search-input';
+  searchInput.placeholder = i18n.t('foodName') + '...';
+  searchInput.setAttribute('aria-label', i18n.t('foodName'));
+
+  searchBox.appendChild(searchInput);
+
+  const foodsList = document.createElement('div');
+  foodsList.className = 'foods-list';
+  foodsList.id = 'foods-list';
 
   foods.forEach(food => {
-    html += `
-      <div class="food-item-compact" data-food-name="${food.name.toLowerCase()}">
-        <div class="food-item-header">
-          <h4>${food.name}</h4>
-          <span class="food-category">${food.category}</span>
-        </div>
-        <div class="food-item-nutrition">
-          ${food.servings[0] ? `
-            <span class="nutrition-badge">${food.servings[0].calories} cal</span>
-            <span class="nutrition-badge">P: ${food.servings[0].proteins}g</span>
-            <span class="nutrition-badge">F: ${food.servings[0].fats}g</span>
-            <span class="nutrition-badge">C: ${food.servings[0].carbs}g</span>
-          ` : ''}
-        </div>
-      </div>
-    `;
+    const foodItem = document.createElement('div');
+    foodItem.className = 'food-item-compact';
+    foodItem.dataset.foodName = food.name.toLowerCase();
+
+    const header = document.createElement('div');
+    header.className = 'food-item-header';
+
+    const nameEl = document.createElement('h4');
+    nameEl.textContent = food.name;
+
+    const categoryEl = document.createElement('span');
+    categoryEl.className = 'food-category';
+    categoryEl.textContent = food.category;
+
+    header.appendChild(nameEl);
+    header.appendChild(categoryEl);
+
+    const nutrition = document.createElement('div');
+    nutrition.className = 'food-item-nutrition';
+
+    if (food.servings && food.servings[0]) {
+      const serving = food.servings[0];
+      const badges = [
+        `${serving.calories} cal`,
+        `P: ${serving.proteins}g`,
+        `F: ${serving.fats}g`,
+        `C: ${serving.carbs}g`
+      ];
+
+      badges.forEach(badge => {
+        const badgeEl = document.createElement('span');
+        badgeEl.className = 'nutrition-badge';
+        badgeEl.textContent = badge;
+        nutrition.appendChild(badgeEl);
+      });
+    }
+
+    foodItem.appendChild(header);
+    foodItem.appendChild(nutrition);
+    foodsList.appendChild(foodItem);
   });
 
-  html += '</div></div>';
-  contentArea.innerHTML = html;
+  container.appendChild(searchBox);
+  container.appendChild(foodsList);
 
-  // Add search functionality
-  const searchInput = document.getElementById('food-search');
+  contentArea.innerHTML = '';
+  contentArea.appendChild(container);
+
+  // Add search functionality with proper cleanup
   const foodItems = document.querySelectorAll('.food-item-compact');
 
-  searchInput.addEventListener('input', (e) => {
+  const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
     foodItems.forEach(item => {
       const foodName = item.dataset.foodName;
-      if (foodName.includes(query)) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
+      item.style.display = foodName.includes(query) ? 'block' : 'none';
     });
-  });
+  };
+
+  // Remove previous listener before adding new one
+  searchInput.removeEventListener('input', handleSearch);
+  searchInput.addEventListener('input', handleSearch);
+}
+
+/**
+ * Escapes HTML special characters to prevent XSS attacks
+ * @param {string} text - Text to escape
+ * @returns {string} Escaped text safe for HTML
+ */
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return String(text).replace(/[&<>"']/g, (char) => map[char]);
 }

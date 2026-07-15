@@ -26,43 +26,43 @@
 }
 
 .btn-primary {
-  background-color: #8b5cf6;
-  color: #FFFFFF;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
   box-shadow: 0 1px 3px rgba(139, 92, 246, 0.2);
   font-weight: var(--font-weight-medium);
 }
 
 .btn-primary:active {
-  background-color: #7c3aed;
+  background-color: var(--color-primary-dark);
   box-shadow: 0 4px 6px rgba(139, 92, 246, 0.15);
   transform: scale(0.98);
 }
 
 @media (hover: hover) {
   .btn-primary:hover {
-    background-color: #7c3aed;
+    background-color: var(--color-primary-dark);
     box-shadow: 0 4px 6px rgba(139, 92, 246, 0.15);
     transform: translateY(-2px);
   }
 }
 
 .btn-secondary {
-  background-color: #f3f4f6;
+  background-color: var(--bg-secondary);
   color: var(--color-text-dark);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-medium-gray);
 }
 
 .btn-secondary:active {
-  background-color: #e5e7eb;
+  background-color: var(--color-medium-gray);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   transform: scale(0.98);
 }
 
 @media (hover: hover) {
   .btn-secondary:hover {
-    background-color: #e5e7eb;
-    border-color: #10b981;
+    background-color: var(--color-medium-gray);
+    border-color: var(--color-accent-green);
     box-shadow: 0 1px 3px rgba(16, 185, 129, 0.1);
     transform: translateY(-2px);
   }
@@ -94,11 +94,11 @@
 
 /* Cards */
 .card {
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #f3f4f6;
+  border: 1px solid var(--color-light-gray);
   transition: all var(--transition-base);
 }
 
@@ -334,4 +334,17 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

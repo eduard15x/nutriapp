@@ -1,4 +1,10 @@
+/**
+ * Calculator module for nutrition and calorie calculations
+ */
 class Calculator {
+  /**
+   * Initializes the Calculator with default user data
+   */
   constructor() {
     this.storageKey = 'nutriapp-calculator-data';
     this.defaultData = {
@@ -12,20 +18,40 @@ class Calculator {
     this.userData = this.loadData();
   }
 
+  /**
+   * Loads user data from localStorage or returns default data
+   * @returns {Object} User data
+   */
   loadData() {
     const stored = localStorage.getItem(this.storageKey);
     return stored ? JSON.parse(stored) : this.defaultData;
   }
 
+  /**
+   * Saves user data to localStorage
+   * @param {Object} data - User data to save
+   */
   saveData(data) {
     this.userData = data;
     localStorage.setItem(this.storageKey, JSON.stringify(data));
   }
 
+  /**
+   * Gets current user data
+   * @returns {Object} Current user data
+   */
   getUserData() {
     return this.userData;
   }
 
+  /**
+   * Calculates Basal Metabolic Rate (BMR) using Mifflin-St Jeor equation
+   * @param {number} weight - Weight in kg
+   * @param {number} height - Height in cm
+   * @param {number} age - Age in years
+   * @param {string} gender - Gender (male/female)
+   * @returns {number} BMR value
+   */
   calculateBMR(weight, height, age, gender) {
     if (gender === 'male') {
       return 10 * weight + 6.25 * height - 5 * age + 5;
@@ -34,10 +60,22 @@ class Calculator {
     }
   }
 
+  /**
+   * Calculates Total Daily Energy Expenditure (TDEE)
+   * @param {number} bmr - Basal Metabolic Rate
+   * @param {number} activityLevel - Activity level multiplier
+   * @returns {number} TDEE value
+   */
   calculateTDEE(bmr, activityLevel) {
     return bmr * activityLevel;
   }
 
+  /**
+   * Calculates macro nutrients based on TDEE and goal
+   * @param {number} tdee - Total Daily Energy Expenditure
+   * @param {string} goal - Fitness goal (maintain/bulk/cut/shred)
+   * @returns {Object} Macronutrient breakdown
+   */
   calculateMacros(tdee, goal) {
     const macroRatios = {
       maintain: { protein: 0.3, fat: 0.3, carbs: 0.4 },
@@ -57,6 +95,12 @@ class Calculator {
     };
   }
 
+  /**
+   * Gets adjusted calories based on fitness goal
+   * @param {number} tdee - Total Daily Energy Expenditure
+   * @param {string} goal - Fitness goal
+   * @returns {number} Adjusted calorie target
+   */
   getGoalCalories(tdee, goal) {
     const adjustments = {
       maintain: 0,
@@ -67,6 +111,16 @@ class Calculator {
     return tdee + (adjustments[goal] || 0);
   }
 
+  /**
+   * Calculates complete daily nutrition plan
+   * @param {number} weight - Weight in kg
+   * @param {number} height - Height in cm
+   * @param {number} age - Age in years
+   * @param {string} gender - Gender (male/female)
+   * @param {number} activityLevel - Activity level multiplier
+   * @param {string} goal - Fitness goal
+   * @returns {Object} Complete nutrition plan
+   */
   calculateDaily(weight, height, age, gender, activityLevel, goal) {
     const bmr = this.calculateBMR(weight, height, age, gender);
     const tdee = this.calculateTDEE(bmr, activityLevel);
@@ -81,6 +135,11 @@ class Calculator {
     };
   }
 
+  /**
+   * Gets human-readable activity level description
+   * @param {number} level - Activity level multiplier
+   * @returns {string} Activity level description
+   */
   getActivityLevelText(level) {
     const levels = {
       1.2: 'Sedentary (little or no exercise)',
@@ -92,6 +151,11 @@ class Calculator {
     return levels[level] || 'Unknown';
   }
 
+  /**
+   * Gets human-readable goal description
+   * @param {string} goal - Fitness goal
+   * @returns {string} Goal description
+   */
   getGoalDescription(goal) {
     const descriptions = {
       maintain: 'Maintain your current weight',

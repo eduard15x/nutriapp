@@ -70,4 +70,8 @@
   --transition-fast: 150ms ease-in-out;
   --transition-base: 300ms ease-in-out;
   --transition-slow: 500ms ease-in-out;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(180deg, #8b5cf6 0%, #7c3aed 100%);
+  --gradient-primary-reverse: linear-gradient(180deg, #7c3aed 0%, #8b5cf6 100%);
 }
