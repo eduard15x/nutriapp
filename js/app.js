@@ -37,6 +37,11 @@ function initializeLanguage() {
       i18n.setLanguage(lang);
       updatePageLanguage();
       langDropdown.value = lang;
+      // Reload modal if food details is open
+      const foodDetailsModal = document.getElementById('fooddetails-modal');
+      if (foodDetailsModal && foodDetailsModal.classList.contains('active')) {
+        loadFoodDetailsModal();
+      }
     });
   }
 }
@@ -355,11 +360,15 @@ function loadFoodDetailsModal() {
     header.className = 'food-item-header';
 
     const nameEl = document.createElement('h4');
-    nameEl.textContent = food.name;
+    // Display food name in current language
+    const currentLang = i18n.getLanguage();
+    nameEl.textContent = currentLang === 'ro' && food.nameRo ? food.nameRo : food.name;
 
     const categoryEl = document.createElement('span');
     categoryEl.className = 'food-category';
-    categoryEl.textContent = food.category;
+    // Translate category based on food category
+    const categoryKey = `category${food.category.charAt(0).toUpperCase() + food.category.slice(1)}`;
+    categoryEl.textContent = i18n.t(categoryKey) || food.category;
 
     header.appendChild(nameEl);
     header.appendChild(categoryEl);

@@ -81,7 +81,14 @@ class I18n {
         egg: 'Ou',
         brownRice: 'Orez brun',
         broccoli: 'Broccoli',
-        banana: 'Banană'
+        banana: 'Banană',
+        categoryProtein: 'Proteină',
+        categoryCarbs: 'Carbohidrați',
+        categoryVegetables: 'Legume',
+        categoryFruits: 'Fructe',
+        categoryDairy: 'Lactate',
+        categoryNuts: 'Fructe uscate',
+        categoryOils: 'Uleiuri'
       },
       en: {
         appTitle: 'NutriApp',
@@ -156,7 +163,14 @@ class I18n {
         egg: 'Egg',
         brownRice: 'Brown Rice',
         broccoli: 'Broccoli',
-        banana: 'Banana'
+        banana: 'Banana',
+        categoryProtein: 'Protein',
+        categoryCarbs: 'Carbs',
+        categoryVegetables: 'Vegetables',
+        categoryFruits: 'Fruits',
+        categoryDairy: 'Dairy',
+        categoryNuts: 'Nuts & Seeds',
+        categoryOils: 'Oils'
       }
     };
   }
