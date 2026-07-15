@@ -18,6 +18,7 @@ async function initializeApp() {
 
     initializeLanguage();
     attachEventListeners();
+    showWelcomeIfNeeded();
   } catch (error) {
     console.error('NutriApp - Initialization error:', error);
   }
@@ -37,6 +38,16 @@ function initializeLanguage() {
       i18n.setLanguage(lang);
       updatePageLanguage();
       langDropdown.value = lang;
+
+      // Update welcome modal if visible
+      updateWelcomeModalText();
+
+      // Update user greeting if displayed
+      const userName = localStorage.getItem('nutriapp-user-name');
+      if (userName) {
+        displayUserGreeting(userName);
+      }
+
       // Reload modal if food details is open
       const foodDetailsModal = document.getElementById('fooddetails-modal');
       if (foodDetailsModal && foodDetailsModal.classList.contains('active')) {
@@ -88,6 +99,101 @@ function updatePageLanguage() {
 
   // Footer
   updateElement('footer-text', 'copyright');
+}
+
+/**
+ * Shows welcome popup if user is visiting for the first time
+ */
+function showWelcomeIfNeeded() {
+  const userName = localStorage.getItem('nutriapp-user-name');
+
+  if (!userName) {
+    // First time visitor - show welcome modal
+    const welcomeModal = document.getElementById('welcome-modal');
+    if (welcomeModal) {
+      welcomeModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      const userNameInput = document.getElementById('user-name-input');
+      if (userNameInput) {
+        userNameInput.focus();
+      }
+    }
+  } else {
+    // Returning user - show greeting
+    displayUserGreeting(userName);
+  }
+
+  // Update welcome modal translations
+  updateWelcomeModalText();
+
+  // Attach welcome form handler
+  attachWelcomeFormHandler();
+}
+
+/**
+ * Updates welcome modal text based on current language
+ */
+function updateWelcomeModalText() {
+  document.getElementById('welcome-modal-title').textContent = i18n.t('welcomePopupTitle');
+  document.getElementById('welcome-modal-message').textContent = i18n.t('welcomePopupMessage');
+  document.getElementById('user-name-input').placeholder = i18n.t('welcomePopupPlaceholder');
+
+  const submitBtn = document.querySelector('.welcome-btn');
+  if (submitBtn) {
+    submitBtn.textContent = i18n.t('welcomePopupButton');
+  }
+}
+
+/**
+ * Displays user greeting in hero section
+ */
+function displayUserGreeting(name) {
+  const welcomeText = document.getElementById('welcome-text');
+  if (welcomeText) {
+    const greeting = i18n.t('helloGreeting').replace('{name}', escapeHtml(name));
+    welcomeText.textContent = greeting;
+  }
+}
+
+/**
+ * Attaches event handler to welcome form
+ */
+function attachWelcomeFormHandler() {
+  const welcomeForm = document.getElementById('welcome-form');
+  if (!welcomeForm) return;
+
+  // Remove existing listeners
+  welcomeForm.removeEventListener('submit', handleWelcomeFormSubmit);
+  welcomeForm.addEventListener('submit', handleWelcomeFormSubmit);
+}
+
+/**
+ * Handles welcome form submission
+ */
+function handleWelcomeFormSubmit(e) {
+  e.preventDefault();
+
+  const userNameInput = document.getElementById('user-name-input');
+  const name = userNameInput.value.trim();
+
+  if (!name) {
+    userNameInput.focus();
+    return;
+  }
+
+  // Save name to localStorage
+  localStorage.setItem('nutriapp-user-name', name);
+
+  // Close welcome modal
+  const welcomeModal = document.getElementById('welcome-modal');
+  if (welcomeModal) {
+    welcomeModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Display greeting
+  displayUserGreeting(name);
 }
 
 /**

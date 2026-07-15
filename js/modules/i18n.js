@@ -92,7 +92,12 @@ class I18n {
         categoryFruits: 'Fructe',
         categoryDairy: 'Lactate',
         categoryNuts: 'Fructe uscate',
-        categoryOils: 'Uleiuri'
+        categoryOils: 'Uleiuri',
+        welcomePopupTitle: 'Bun venit la NutriApp!',
+        welcomePopupMessage: 'Care este numele tău?',
+        welcomePopupPlaceholder: 'Introdu-ți numele...',
+        welcomePopupButton: 'Să încep!',
+        helloGreeting: 'Bună, {name}!'
       },
       en: {
         appTitle: 'NutriApp',
@@ -178,7 +183,12 @@ class I18n {
         categoryFruits: 'Fruits',
         categoryDairy: 'Dairy',
         categoryNuts: 'Nuts & Seeds',
-        categoryOils: 'Oils'
+        categoryOils: 'Oils',
+        welcomePopupTitle: 'Welcome to NutriApp!',
+        welcomePopupMessage: 'What is your name?',
+        welcomePopupPlaceholder: 'Enter your name...',
+        welcomePopupButton: 'Let\'s Get Started!',
+        helloGreeting: 'Hello, {name}!'
       }
     };
   }
