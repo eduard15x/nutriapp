@@ -4,20 +4,71 @@
 header {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   color: var(--color-text-light);
-  padding: var(--spacing-xl) var(--spacing-md);
-  text-align: center;
   box-shadow: var(--shadow-lg);
+  padding: var(--spacing-xl) var(--spacing-md);
 }
 
-header h1 {
-  margin-bottom: var(--spacing-sm);
-  font-size: 2rem;
+.header-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
 }
 
-header p {
-  font-size: var(--font-size-base);
+.header-title {
+  text-align: center;
+  flex: 1;
+}
+
+.header-title h1 {
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.75rem;
+}
+
+.header-title p {
+  font-size: var(--font-size-sm);
   margin-bottom: 0;
   opacity: 0.95;
+}
+
+/* Language Switcher */
+.header-actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.language-dropdown {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-text-light);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-height: 40px;
+  white-space: nowrap;
+}
+
+.language-dropdown:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.language-dropdown:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--color-text-light);
+}
+
+.language-dropdown option {
+  background-color: var(--bg-primary);
+  color: var(--color-text-dark);
 }
 
 @media (min-width: 768px) {
@@ -25,25 +76,32 @@ header p {
     padding: var(--spacing-2xl) var(--spacing-md);
   }
 
-  header h1 {
+  .header-title h1 {
+    margin-bottom: var(--spacing-sm);
     font-size: 2.5rem;
   }
 
-  header p {
+  .header-title p {
     font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 640px) {
+  .header-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+    margin-top: var(--spacing-sm);
   }
 }
 
 /* Main Content */
 main {
   min-height: calc(100vh - 300px);
-  padding: var(--spacing-lg) var(--spacing-md);
-}
-
-@media (min-width: 768px) {
-  main {
-    padding: var(--spacing-2xl) var(--spacing-md);
-  }
 }
 
 /* Hero Section */
@@ -327,6 +385,48 @@ select {
 /* Practices List */
 .practices-list {
   margin-top: var(--spacing-lg);
+}
+
+/* Food Details */
+.foods-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.food-item {
+  background: var(--bg-secondary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-primary);
+}
+
+.food-item h3 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+}
+
+.food-item p {
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+}
+
+.food-item ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.food-item li {
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-sm);
+  background: white;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.food-item li:last-child {
+  margin-bottom: 0;
 }
 
 /* Mobile-friendly touches */

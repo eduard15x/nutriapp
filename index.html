@@ -14,40 +14,58 @@
 <body>
   <!-- Header -->
   <header>
-    <h1>🍎 NutriApp</h1>
-    <p>Your Personal Nutrition & Planning Assistant</p>
+    <div class="header-wrapper">
+      <div class="header-title">
+        <h1>🍎 <span id="app-title">NutriApp</span></h1>
+        <p id="app-subtitle">Your Personal Nutrition & Planning Assistant</p>
+      </div>
+      <div class="header-actions">
+        <select id="language-switcher" class="language-dropdown">
+          <option value="ro">🇷🇴 Română</option>
+          <option value="en">🇬🇧 English</option>
+        </select>
+      </div>
+    </div>
   </header>
 
   <!-- Main Content -->
   <main class="container">
     <section class="hero-section">
-      <h2>Welcome to NutriApp</h2>
-      <p>Choose an option below to get started with your nutrition journey</p>
+      <h2 id="welcome-text">Welcome to NutriApp</h2>
+      <p id="choose-text">Choose an option below to get started with your nutrition journey</p>
     </section>
 
     <section class="options-grid">
       <!-- Recipes Option -->
       <div class="option-card" data-modal="recipes">
         <div class="option-icon">📖</div>
-        <h2>Recipes</h2>
-        <p>Explore delicious and healthy recipe ideas</p>
-        <button class="btn btn-primary">Explore Recipes</button>
+        <h2 id="recipes-title">Recipes</h2>
+        <p id="recipes-desc">Explore delicious and healthy recipe ideas</p>
+        <button class="btn btn-primary" id="recipes-btn">Explore Recipes</button>
       </div>
 
       <!-- Calories Calculator Option -->
       <div class="option-card" data-modal="calculator">
         <div class="option-icon">🧮</div>
-        <h2>Calories Calculator</h2>
-        <p>Calculate your daily calorie needs based on your goals</p>
-        <button class="btn btn-primary">Calculate Now</button>
+        <h2 id="calculator-title">Calories Calculator</h2>
+        <p id="calculator-desc">Calculate your daily calorie needs based on your goals</p>
+        <button class="btn btn-primary" id="calculator-btn">Calculate Now</button>
       </div>
 
       <!-- Best Practices Option -->
       <div class="option-card" data-modal="practices">
         <div class="option-icon">⭐</div>
-        <h2>Best Practices</h2>
-        <p>Learn nutrition tips and healthy lifestyle habits</p>
-        <button class="btn btn-primary">Learn More</button>
+        <h2 id="practices-title">Best Practices</h2>
+        <p id="practices-desc">Learn nutrition tips and healthy lifestyle habits</p>
+        <button class="btn btn-primary" id="practices-btn">Learn More</button>
+      </div>
+
+      <!-- Food Details Option -->
+      <div class="option-card" data-modal="fooddetails">
+        <div class="option-icon">🍎</div>
+        <h2 id="fooddetails-title">Food Details</h2>
+        <p id="fooddetails-desc">View detailed specifications of different foods</p>
+        <button class="btn btn-primary" id="fooddetails-btn">Explore Foods</button>
       </div>
     </section>
   </main>
@@ -57,10 +75,12 @@
   <div id="recipes-modal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Recipes</h2>
+        <h2 id="recipes-modal-title">Recipes</h2>
         <button class="modal-close" data-modal-close="recipes">✕</button>
       </div>
-      <p>Recipe content coming soon...</p>
+      <div id="recipes-content">
+        <div class="alert alert-info" id="recipes-warning"></div>
+      </div>
     </div>
   </div>
 
@@ -68,10 +88,10 @@
   <div id="calculator-modal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Calorie Calculator</h2>
+        <h2 id="calculator-modal-title">Calorie Calculator</h2>
         <button class="modal-close" data-modal-close="calculator">✕</button>
       </div>
-      <p>Calculator content coming soon...</p>
+      <div id="calculator-content"></div>
     </div>
   </div>
 
@@ -79,19 +99,31 @@
   <div id="practices-modal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Best Practices</h2>
+        <h2 id="practices-modal-title">Best Practices</h2>
         <button class="modal-close" data-modal-close="practices">✕</button>
       </div>
-      <p>Best practices content coming soon...</p>
+      <div id="practices-content"></div>
+    </div>
+  </div>
+
+  <!-- Food Details Modal -->
+  <div id="fooddetails-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="fooddetails-modal-title">Food Details</h2>
+        <button class="modal-close" data-modal-close="fooddetails">✕</button>
+      </div>
+      <div id="fooddetails-content"></div>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 NutriApp. All rights reserved. | Eat well, live better.</p>
+    <p id="footer-text">&copy; 2026 NutriApp. All rights reserved. | Eat well, live better.</p>
   </footer>
 
   <!-- Scripts -->
+  <script src="js/modules/i18n.js"></script>
   <script src="js/modules/DataManager.js"></script>
   <script src="js/modules/UIManager.js"></script>
   <script src="js/modules/ModalManager.js"></script>

@@ -1,13 +1,29 @@
 class Calculator {
   constructor() {
-    this.userData = {
-      weight: 0,
-      height: 0,
-      age: 0,
+    this.storageKey = 'nutriapp-calculator-data';
+    this.defaultData = {
+      weight: 70,
+      height: 180,
+      age: 25,
       gender: 'male',
       activityLevel: 1.375,
       goal: 'maintain'
     };
+    this.userData = this.loadData();
+  }
+
+  loadData() {
+    const stored = localStorage.getItem(this.storageKey);
+    return stored ? JSON.parse(stored) : this.defaultData;
+  }
+
+  saveData(data) {
+    this.userData = data;
+    localStorage.setItem(this.storageKey, JSON.stringify(data));
+  }
+
+  getUserData() {
+    return this.userData;
   }
 
   calculateBMR(weight, height, age, gender) {

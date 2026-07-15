@@ -4,7 +4,7 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
 }
 
 /* Buttons */
