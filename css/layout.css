@@ -2,48 +2,62 @@
 
 /* Header */
 header {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-  color: var(--color-text-light);
-  box-shadow: var(--shadow-lg);
+  background: linear-gradient(180deg, #8b5cf6 0%, #7c3aed 100%);
+  color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(139, 92, 246, 0.1);
   padding: var(--spacing-xl) var(--spacing-md);
+  position: relative;
 }
 
 .header-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: var(--spacing-lg);
+  justify-content: center;
+  align-items: center;
 }
 
 .header-title {
   text-align: center;
-  flex: 1;
 }
 
 .header-title h1 {
   margin-bottom: var(--spacing-xs);
   font-size: 1.75rem;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.header-icon {
+  width: 32px;
+  height: 32px;
+  fill: #FFFFFF;
 }
 
 .header-title p {
   font-size: var(--font-size-sm);
   margin-bottom: 0;
   opacity: 0.95;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Language Switcher */
 .header-actions {
-  flex-shrink: 0;
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
 }
 
 .language-dropdown {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: var(--color-text-light);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
   font-size: var(--font-size-sm);
@@ -56,19 +70,30 @@ header {
 }
 
 .language-dropdown:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .language-dropdown:focus {
   outline: none;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-color: var(--color-text-light);
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .language-dropdown option {
   background-color: var(--bg-primary);
   color: var(--color-text-dark);
+}
+
+@media (max-width: 640px) {
+  .header-actions {
+    right: var(--spacing-sm);
+  }
+
+  .language-dropdown {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
 }
 
 @media (min-width: 768px) {
@@ -79,6 +104,11 @@ header {
   .header-title h1 {
     margin-bottom: var(--spacing-sm);
     font-size: 2.5rem;
+  }
+
+  .header-icon {
+    width: 40px;
+    height: 40px;
   }
 
   .header-title p {
@@ -146,13 +176,13 @@ main {
 
 /* Option Card */
 .option-card {
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-  border-radius: var(--radius-xl);
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   text-align: center;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all var(--transition-base);
-  border: 2px solid transparent;
+  border: 1px solid #f3f4f6;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -160,26 +190,47 @@ main {
 
 .option-card:active {
   transform: scale(0.98);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
 }
 
 @media (hover: hover) {
   .option-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--color-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+    border-color: #10b981;
   }
 }
 
 .option-icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-md);
+  width: 70px;
+  height: 70px;
+  margin: 0 auto var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f3ff;
+  border-radius: var(--radius-lg);
+  color: #8b5cf6;
+}
+
+.option-icon svg {
+  width: 40px;
+  height: 40px;
+  stroke: #8b5cf6;
+  color: #8b5cf6;
+  stroke-width: 1.5;
 }
 
 @media (min-width: 768px) {
   .option-icon {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-lg);
+    width: 90px;
+    height: 90px;
+    margin: 0 auto var(--spacing-lg);
+  }
+
+  .option-icon svg {
+    width: 48px;
+    height: 48px;
   }
 }
 
@@ -206,12 +257,12 @@ main {
 
 /* Footer */
 footer {
-  background-color: var(--bg-secondary);
-  padding: var(--spacing-lg) var(--spacing-md);
+  background: linear-gradient(180deg, #7c3aed 0%, #8b5cf6 100%);
+  padding: var(--spacing-xl) var(--spacing-md);
   text-align: center;
-  color: var(--color-text-dark);
-  border-top: 1px solid var(--color-medium-gray);
+  color: rgba(255, 255, 255, 0.9);
   margin-top: var(--spacing-xl);
+  box-shadow: 0 -2px 4px rgba(139, 92, 246, 0.1);
 }
 
 footer p {
@@ -388,45 +439,89 @@ select {
 }
 
 /* Food Details */
-.foods-list {
+.food-details-container {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
 }
 
-.food-item {
-  background: var(--bg-secondary);
-  padding: var(--spacing-lg);
+.food-search-box {
+  sticky top 0;
+  z-index: 10;
+}
+
+.food-search-input {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid #e5e7eb;
   border-radius: var(--radius-lg);
-  border-left: 4px solid var(--color-primary);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-base);
 }
 
-.food-item h3 {
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-primary);
-  font-size: var(--font-size-lg);
+.food-search-input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
 }
 
-.food-item p {
-  margin-bottom: var(--spacing-sm);
-  font-size: var(--font-size-sm);
+.foods-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  max-height: 500px;
+  overflow-y: auto;
 }
 
-.food-item ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.food-item li {
-  font-size: var(--font-size-sm);
-  padding: var(--spacing-sm);
-  background: white;
+.food-item-compact {
+  background: #FFFFFF;
+  padding: var(--spacing-md);
   border-radius: var(--radius-md);
+  border-left: 3px solid #8b5cf6;
+  border: 1px solid #f3f4f6;
+  border-left: 3px solid #8b5cf6;
+  transition: all var(--transition-base);
+}
+
+.food-item-compact:hover {
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
+}
+
+.food-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: var(--spacing-sm);
 }
 
-.food-item li:last-child {
-  margin-bottom: 0;
+.food-item-header h4 {
+  margin: 0;
+  color: var(--color-text-dark);
+  font-size: var(--font-size-base);
+}
+
+.food-category {
+  background: #f5f3ff;
+  color: #8b5cf6;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.food-item-nutrition {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.nutrition-badge {
+  background: #f9fafb;
+  color: var(--color-text-dark);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
 }
 
 /* Mobile-friendly touches */

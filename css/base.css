@@ -17,7 +17,7 @@ body {
   font-weight: var(--font-weight-regular);
   line-height: 1.6;
   color: var(--color-text-dark);
-  background-color: var(--bg-primary);
+  background-color: #FFFFFF;
   min-height: 100vh;
 }
 

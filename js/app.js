@@ -222,28 +222,28 @@ function loadBestPracticesModal() {
   const contentArea = document.getElementById('practices-content');
   contentArea.innerHTML = `
     <div class="practices-list">
-      <div class="content-card" style="background: rgba(144, 238, 144, 0.1);">
-        <h3>💧 ${i18n.t('hydration')}</h3>
+      <div class="content-card" style="background: #f5f3ff; border-left-color: #8b5cf6;">
+        <h3>${i18n.t('hydration')}</h3>
         <p>${i18n.t('hydrationDesc')}</p>
       </div>
 
-      <div class="content-card" style="background: rgba(135, 206, 235, 0.1); border-left-color: var(--color-accent-sky);">
-        <h3>😴 ${i18n.t('sleep')}</h3>
+      <div class="content-card" style="background: #f5f3ff; border-left-color: #8b5cf6;">
+        <h3>${i18n.t('sleep')}</h3>
         <p>${i18n.t('sleepDesc')}</p>
       </div>
 
-      <div class="content-card" style="background: rgba(255, 215, 0, 0.1); border-left-color: var(--color-accent-yellow);">
-        <h3>🏃 ${i18n.t('exercise')}</h3>
+      <div class="content-card" style="background: #f5f3ff; border-left-color: #8b5cf6;">
+        <h3>${i18n.t('exercise')}</h3>
         <p>${i18n.t('exerciseDesc')}</p>
       </div>
 
-      <div class="content-card" style="background: rgba(238, 90, 111, 0.1); border-left-color: var(--color-secondary);">
-        <h3>🥗 ${i18n.t('wholefoods')}</h3>
+      <div class="content-card" style="background: #f5f3ff; border-left-color: #8b5cf6;">
+        <h3>${i18n.t('wholefoods')}</h3>
         <p>${i18n.t('wholefoodsDesc')}</p>
       </div>
 
-      <div class="content-card" style="background: rgba(255, 159, 67, 0.1);">
-        <h3>📊 ${i18n.t('trackProgress')}</h3>
+      <div class="content-card" style="background: #f5f3ff; border-left-color: #8b5cf6;">
+        <h3>${i18n.t('trackProgress')}</h3>
         <p>${i18n.t('trackProgressDesc')}</p>
       </div>
     </div>
@@ -254,29 +254,49 @@ function loadFoodDetailsModal() {
   const contentArea = document.getElementById('fooddetails-content');
   const foods = dataManager.getFoods();
 
-  let html = '<div class="foods-list">';
+  let html = `
+    <div class="food-details-container">
+      <div class="food-search-box">
+        <input type="text" id="food-search" class="food-search-input" placeholder="${i18n.t('foodName')}...">
+      </div>
+      <div class="foods-list" id="foods-list">
+  `;
 
   foods.forEach(food => {
     html += `
-      <div class="food-item">
-        <h3>${food.name}</h3>
-        <p><strong>${i18n.t('category')}:</strong> ${food.category}</p>
-        <p><strong>${i18n.t('servingOptions')}:</strong></p>
-        <ul style="margin-left: var(--spacing-lg);">
-          ${food.servings.map(serving => `
-            <li style="margin-bottom: var(--spacing-sm);">
-              <strong>${serving.unit}</strong>:
-              ${serving.calories} ${i18n.t('calorie')} |
-              P: ${serving.proteins}g |
-              F: ${serving.fats}g |
-              C: ${serving.carbs}g
-            </li>
-          `).join('')}
-        </ul>
+      <div class="food-item-compact" data-food-name="${food.name.toLowerCase()}">
+        <div class="food-item-header">
+          <h4>${food.name}</h4>
+          <span class="food-category">${food.category}</span>
+        </div>
+        <div class="food-item-nutrition">
+          ${food.servings[0] ? `
+            <span class="nutrition-badge">${food.servings[0].calories} cal</span>
+            <span class="nutrition-badge">P: ${food.servings[0].proteins}g</span>
+            <span class="nutrition-badge">F: ${food.servings[0].fats}g</span>
+            <span class="nutrition-badge">C: ${food.servings[0].carbs}g</span>
+          ` : ''}
+        </div>
       </div>
     `;
   });
 
-  html += '</div>';
+  html += '</div></div>';
   contentArea.innerHTML = html;
+
+  // Add search functionality
+  const searchInput = document.getElementById('food-search');
+  const foodItems = document.querySelectorAll('.food-item-compact');
+
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase();
+    foodItems.forEach(item => {
+      const foodName = item.dataset.foodName;
+      if (foodName.includes(query)) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
 }
