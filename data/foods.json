@@ -108,5 +108,885 @@
         "carbs": 23
       }
     ]
+  },
+  {
+    "id": 6,
+    "name": "Beef (lean)",
+    "nameRo": "Carne de vită (slabă)",
+    "category": "protein",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 180,
+        "proteins": 26,
+        "fats": 8,
+        "carbs": 0
+      },
+      {
+        "unit": "150g steak",
+        "calories": 270,
+        "proteins": 39,
+        "fats": 12,
+        "carbs": 0
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Salmon",
+    "nameRo": "Somon",
+    "category": "protein",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 208,
+        "proteins": 20,
+        "fats": 13,
+        "carbs": 0
+      },
+      {
+        "unit": "150g fillet",
+        "calories": 312,
+        "proteins": 30,
+        "fats": 20,
+        "carbs": 0
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Greek Yogurt",
+    "nameRo": "Iaurt grecesc",
+    "category": "dairy",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 59,
+        "proteins": 10,
+        "fats": 0.4,
+        "carbs": 3.3
+      },
+      {
+        "unit": "200g bowl",
+        "calories": 118,
+        "proteins": 20,
+        "fats": 0.8,
+        "carbs": 6.6
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Milk (2%)",
+    "nameRo": "Lapte (2%)",
+    "category": "dairy",
+    "servings": [
+      {
+        "unit": "100ml",
+        "calories": 49,
+        "proteins": 3.2,
+        "fats": 1.7,
+        "carbs": 4.8
+      },
+      {
+        "unit": "1 cup (240ml)",
+        "calories": 118,
+        "proteins": 7.7,
+        "fats": 4.1,
+        "carbs": 11.5
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Cheese (Cheddar)",
+    "nameRo": "Brânză (Cheddar)",
+    "category": "dairy",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 402,
+        "proteins": 25,
+        "fats": 33,
+        "carbs": 1.3
+      },
+      {
+        "unit": "30g slice",
+        "calories": 120,
+        "proteins": 7.5,
+        "fats": 10,
+        "carbs": 0.4
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "White Rice",
+    "nameRo": "Orez alb",
+    "category": "carbs",
+    "servings": [
+      {
+        "unit": "100g cooked",
+        "calories": 130,
+        "proteins": 2.7,
+        "fats": 0.3,
+        "carbs": 28
+      },
+      {
+        "unit": "1 cup cooked (158g)",
+        "calories": 206,
+        "proteins": 4.3,
+        "fats": 0.5,
+        "carbs": 44
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Whole Wheat Bread",
+    "nameRo": "Pâine integrală",
+    "category": "carbs",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 247,
+        "proteins": 9,
+        "fats": 3.3,
+        "carbs": 44
+      },
+      {
+        "unit": "1 slice (28g)",
+        "calories": 69,
+        "proteins": 2.5,
+        "fats": 0.9,
+        "carbs": 12
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Oats",
+    "nameRo": "Ovăz",
+    "category": "carbs",
+    "servings": [
+      {
+        "unit": "100g dry",
+        "calories": 389,
+        "proteins": 17,
+        "fats": 6.9,
+        "carbs": 66
+      },
+      {
+        "unit": "50g dry (1 cup cooked)",
+        "calories": 195,
+        "proteins": 8.5,
+        "fats": 3.5,
+        "carbs": 33
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Pasta (white)",
+    "nameRo": "Paste (albe)",
+    "category": "carbs",
+    "servings": [
+      {
+        "unit": "100g cooked",
+        "calories": 131,
+        "proteins": 4.4,
+        "fats": 1.1,
+        "carbs": 25
+      },
+      {
+        "unit": "1 cup cooked (140g)",
+        "calories": 183,
+        "proteins": 6.2,
+        "fats": 1.5,
+        "carbs": 35
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Sweet Potato",
+    "nameRo": "Cartof dulce",
+    "category": "carbs",
+    "servings": [
+      {
+        "unit": "100g baked",
+        "calories": 86,
+        "proteins": 1.6,
+        "fats": 0.1,
+        "carbs": 20
+      },
+      {
+        "unit": "1 medium (103g)",
+        "calories": 89,
+        "proteins": 1.6,
+        "fats": 0.1,
+        "carbs": 21
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Potato (boiled)",
+    "nameRo": "Cartof (fiert)",
+    "category": "carbs",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 77,
+        "proteins": 1.7,
+        "fats": 0.1,
+        "carbs": 17
+      },
+      {
+        "unit": "1 medium (173g)",
+        "calories": 133,
+        "proteins": 2.9,
+        "fats": 0.2,
+        "carbs": 29
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Spinach",
+    "nameRo": "Spanac",
+    "category": "vegetables",
+    "servings": [
+      {
+        "unit": "100g raw",
+        "calories": 23,
+        "proteins": 2.9,
+        "fats": 0.4,
+        "carbs": 3.6
+      },
+      {
+        "unit": "1 cup raw (30g)",
+        "calories": 7,
+        "proteins": 0.9,
+        "fats": 0.1,
+        "carbs": 1.1
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Carrot",
+    "nameRo": "Morcov",
+    "category": "vegetables",
+    "servings": [
+      {
+        "unit": "100g raw",
+        "calories": 41,
+        "proteins": 0.9,
+        "fats": 0.2,
+        "carbs": 10
+      },
+      {
+        "unit": "1 medium (61g)",
+        "calories": 25,
+        "proteins": 0.6,
+        "fats": 0.1,
+        "carbs": 6
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Bell Pepper",
+    "nameRo": "Ardei gras",
+    "category": "vegetables",
+    "servings": [
+      {
+        "unit": "100g raw",
+        "calories": 31,
+        "proteins": 1,
+        "fats": 0.3,
+        "carbs": 6
+      },
+      {
+        "unit": "1 medium (149g)",
+        "calories": 46,
+        "proteins": 1.5,
+        "fats": 0.5,
+        "carbs": 9
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Tomato",
+    "nameRo": "Tomate",
+    "category": "vegetables",
+    "servings": [
+      {
+        "unit": "100g raw",
+        "calories": 18,
+        "proteins": 0.9,
+        "fats": 0.2,
+        "carbs": 3.9
+      },
+      {
+        "unit": "1 medium (123g)",
+        "calories": 22,
+        "proteins": 1.1,
+        "fats": 0.2,
+        "carbs": 4.8
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Cucumber",
+    "nameRo": "Castravete",
+    "category": "vegetables",
+    "servings": [
+      {
+        "unit": "100g raw",
+        "calories": 16,
+        "proteins": 0.7,
+        "fats": 0.1,
+        "carbs": 3.6
+      },
+      {
+        "unit": "1 medium (301g)",
+        "calories": 48,
+        "proteins": 2.1,
+        "fats": 0.3,
+        "carbs": 11
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Lettuce",
+    "nameRo": "Salată",
+    "category": "vegetables",
+    "servings": [
+      {
+        "unit": "100g raw",
+        "calories": 15,
+        "proteins": 1.2,
+        "fats": 0.2,
+        "carbs": 2.9
+      },
+      {
+        "unit": "1 cup (47g)",
+        "calories": 7,
+        "proteins": 0.6,
+        "fats": 0.1,
+        "carbs": 1.4
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Apple",
+    "nameRo": "Măr",
+    "category": "fruits",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 52,
+        "proteins": 0.3,
+        "fats": 0.2,
+        "carbs": 14
+      },
+      {
+        "unit": "1 medium (182g)",
+        "calories": 95,
+        "proteins": 0.5,
+        "fats": 0.3,
+        "carbs": 25
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Orange",
+    "nameRo": "Portocală",
+    "category": "fruits",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 47,
+        "proteins": 0.9,
+        "fats": 0.3,
+        "carbs": 12
+      },
+      {
+        "unit": "1 medium (154g)",
+        "calories": 72,
+        "proteins": 1.4,
+        "fats": 0.5,
+        "carbs": 18
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Strawberry",
+    "nameRo": "Căpșună",
+    "category": "fruits",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 32,
+        "proteins": 0.8,
+        "fats": 0.3,
+        "carbs": 8
+      },
+      {
+        "unit": "1 cup (152g)",
+        "calories": 49,
+        "proteins": 1.2,
+        "fats": 0.5,
+        "carbs": 12
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Blueberry",
+    "nameRo": "Afine",
+    "category": "fruits",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 57,
+        "proteins": 0.7,
+        "fats": 0.3,
+        "carbs": 14
+      },
+      {
+        "unit": "1 cup (148g)",
+        "calories": 84,
+        "proteins": 1.1,
+        "fats": 0.5,
+        "carbs": 21
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Almonds",
+    "nameRo": "Migdale",
+    "category": "nuts",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 579,
+        "proteins": 21,
+        "fats": 50,
+        "carbs": 22
+      },
+      {
+        "unit": "1 oz (28g)",
+        "calories": 162,
+        "proteins": 6,
+        "fats": 14,
+        "carbs": 6
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Peanut Butter",
+    "nameRo": "Unt de arahide",
+    "category": "nuts",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 588,
+        "proteins": 25,
+        "fats": 50,
+        "carbs": 20
+      },
+      {
+        "unit": "2 tbsp (32g)",
+        "calories": 188,
+        "proteins": 8,
+        "fats": 16,
+        "carbs": 6.4
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Chicken Thigh",
+    "nameRo": "Coapsă de pui",
+    "category": "protein",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 209,
+        "proteins": 26,
+        "fats": 11,
+        "carbs": 0
+      },
+      {
+        "unit": "1 thigh (52g)",
+        "calories": 109,
+        "proteins": 13.5,
+        "fats": 5.7,
+        "carbs": 0
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Turkey Breast",
+    "nameRo": "Piept de curcă",
+    "category": "protein",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 135,
+        "proteins": 29,
+        "fats": 1.3,
+        "carbs": 0
+      },
+      {
+        "unit": "150g portion",
+        "calories": 203,
+        "proteins": 43.5,
+        "fats": 2,
+        "carbs": 0
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Tuna (canned)",
+    "nameRo": "Ton (conservă)",
+    "category": "protein",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 132,
+        "proteins": 29,
+        "fats": 0.9,
+        "carbs": 0
+      },
+      {
+        "unit": "1 can (142g)",
+        "calories": 187,
+        "proteins": 41,
+        "fats": 1.3,
+        "carbs": 0
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Cod",
+    "nameRo": "Cod",
+    "category": "protein",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 82,
+        "proteins": 18,
+        "fats": 0.7,
+        "carbs": 0
+      },
+      {
+        "unit": "150g fillet",
+        "calories": 123,
+        "proteins": 27,
+        "fats": 1,
+        "carbs": 0
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Lentils (cooked)",
+    "nameRo": "Linte (fiartă)",
+    "category": "protein",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 116,
+        "proteins": 9,
+        "fats": 0.4,
+        "carbs": 20
+      },
+      {
+        "unit": "1 cup (198g)",
+        "calories": 230,
+        "proteins": 17.9,
+        "fats": 0.8,
+        "carbs": 40
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Chickpeas (cooked)",
+    "nameRo": "Naut (fiert)",
+    "category": "protein",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 134,
+        "proteins": 8.9,
+        "fats": 2.1,
+        "carbs": 23
+      },
+      {
+        "unit": "1 cup (164g)",
+        "calories": 269,
+        "proteins": 14.5,
+        "fats": 3.4,
+        "carbs": 45
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Beans (black cooked)",
+    "nameRo": "Fasole neagră (fiartă)",
+    "category": "protein",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 132,
+        "proteins": 8.9,
+        "fats": 0.5,
+        "carbs": 24
+      },
+      {
+        "unit": "1 cup (172g)",
+        "calories": 227,
+        "proteins": 15.2,
+        "fats": 0.9,
+        "carbs": 41
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Pork Loin",
+    "nameRo": "File de porc",
+    "category": "protein",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 242,
+        "proteins": 27,
+        "fats": 14,
+        "carbs": 0
+      },
+      {
+        "unit": "150g portion",
+        "calories": 363,
+        "proteins": 40.5,
+        "fats": 21,
+        "carbs": 0
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Cottage Cheese",
+    "nameRo": "Brânză de vaci",
+    "category": "dairy",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 98,
+        "proteins": 11,
+        "fats": 5.3,
+        "carbs": 3.4
+      },
+      {
+        "unit": "200g bowl",
+        "calories": 196,
+        "proteins": 22,
+        "fats": 10.6,
+        "carbs": 6.8
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Avocado",
+    "nameRo": "Avocado",
+    "category": "fruits",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 160,
+        "proteins": 2,
+        "fats": 15,
+        "carbs": 9
+      },
+      {
+        "unit": "1 fruit (150g)",
+        "calories": 240,
+        "proteins": 3,
+        "fats": 22.5,
+        "carbs": 13.5
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Quinoa (cooked)",
+    "nameRo": "Chinoa (fiartă)",
+    "category": "carbs",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 120,
+        "proteins": 4.4,
+        "fats": 1.9,
+        "carbs": 21
+      },
+      {
+        "unit": "1 cup (185g)",
+        "calories": 222,
+        "proteins": 8.1,
+        "fats": 3.5,
+        "carbs": 39
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Broccoli Sprouts",
+    "nameRo": "Germeni de broccoli",
+    "category": "vegetables",
+    "servings": [
+      {
+        "unit": "100g raw",
+        "calories": 34,
+        "proteins": 2.8,
+        "fats": 0.4,
+        "carbs": 7
+      },
+      {
+        "unit": "1 cup (91g)",
+        "calories": 31,
+        "proteins": 2.5,
+        "fats": 0.4,
+        "carbs": 6.4
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Mozzarella",
+    "nameRo": "Mozzarella",
+    "category": "dairy",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 280,
+        "proteins": 28,
+        "fats": 17,
+        "carbs": 3.1
+      },
+      {
+        "unit": "1 oz (28g)",
+        "calories": 78,
+        "proteins": 7.8,
+        "fats": 4.8,
+        "carbs": 0.9
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Garlic",
+    "nameRo": "Usturoi",
+    "category": "vegetables",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 149,
+        "proteins": 6.4,
+        "fats": 0.5,
+        "carbs": 33
+      },
+      {
+        "unit": "3 cloves (9g)",
+        "calories": 13,
+        "proteins": 0.6,
+        "fats": 0.05,
+        "carbs": 3
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Olive Oil",
+    "nameRo": "Ulei de măsline",
+    "category": "oils",
+    "servings": [
+      {
+        "unit": "100ml",
+        "calories": 884,
+        "proteins": 0,
+        "fats": 100,
+        "carbs": 0
+      },
+      {
+        "unit": "1 tbsp (14g)",
+        "calories": 120,
+        "proteins": 0,
+        "fats": 14,
+        "carbs": 0
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Asparagus",
+    "nameRo": "Sparanghel",
+    "category": "vegetables",
+    "servings": [
+      {
+        "unit": "100g raw",
+        "calories": 20,
+        "proteins": 2.2,
+        "fats": 0.1,
+        "carbs": 3.7
+      },
+      {
+        "unit": "1 cup raw (67g)",
+        "calories": 13,
+        "proteins": 1.5,
+        "fats": 0.1,
+        "carbs": 2.5
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Sunflower Seeds",
+    "nameRo": "Semințe de floarea-soarelui",
+    "category": "nuts",
+    "servings": [
+      {
+        "unit": "100g",
+        "calories": 584,
+        "proteins": 21,
+        "fats": 51,
+        "carbs": 20
+      },
+      {
+        "unit": "1 oz (28g)",
+        "calories": 165,
+        "proteins": 5.9,
+        "fats": 14.3,
+        "carbs": 5.6
+      }
+    ]
   }
 ]
